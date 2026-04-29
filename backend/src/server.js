@@ -36,9 +36,6 @@ initializeProgressSocket(io);
 // Make io available to routes via app.locals
 app.locals.io = io;
 
-// Connect to database
-connectDB();
-
 // Middleware
 app.use((req, res, next) => {
   const origin = req.headers.origin;
@@ -93,10 +90,22 @@ app.use(notFound);
 // Central error handling middleware (must be last)
 app.use(errorHandler);
 
-// Start server
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
-  console.log(`Socket.io server initialized`);
-});
+// Start server with database connection
+const startServer = async () => {
+  try {
+    // Connect to database
+    await connectDB();
+    
+    server.listen(PORT, () => {
+      console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
+      console.log(`Socket.io server initialized`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
 
 module.exports = { app, server, io };
