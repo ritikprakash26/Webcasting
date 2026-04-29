@@ -1,0 +1,54 @@
+# Node dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build / coverage
+dist/
+build/
+coverage/
+
+# Uploaded videos / media files
+uploads/
+videos/
+storage/
+
+# Temporary files
+tmp/
+temp/
+
+# Database dumps
+*.dump
+*.bson
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# Test artifacts
+.nyc_output/
+
+# FFmpeg / processed files
+processed/
+thumbnails/
+
+# Socket / runtime
+*.pid
+*.pid.lock
+
