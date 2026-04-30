@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm install",
+  "startCommand": "npm start",
+  "envVars": [],
+  "healthCheckPath": "/api/health",
+  "healthCheckInterval": 30,
+  "healthCheckTimeout": 5,
+  "preDeployCommand": "npm run build --if-present"
+}
