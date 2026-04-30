@@ -96,7 +96,7 @@ const startServer = async () => {
     // Connect to database
     await connectDB();
     
-    server.listen(PORT, () => {
+    server.listen(PORT, '0.0.0.0', () => {
       console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
       console.log(`Socket.io server initialized`);
     });
